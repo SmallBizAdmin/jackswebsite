@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacks Pipe and Civil | Quality Civil Construction Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #2d4654;
+            --navy-dark: #1e3340;
+            --gold: #e8a83e;
+            --gold-light: #f5bc5c;
+            --cream: #f8f6f3;
+            --white: #ffffff;
+            --text-dark: #1a2a33;
+            --text-muted: #5a6a73;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            color: var(--text-dark);
+            background: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.03;
+            background-image: 
+                repeating-linear-gradient(
+                    45deg,
+                    var(--navy) 0,
+                    var(--navy) 1px,
+                    transparent 0,
+                    transparent 50%
+                );
+            background-size: 40px 40px;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 90px;
+        }
+
+        .header-contact {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-contact a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .header-contact a:hover {
+            color: var(--gold);
+        }
+
+        .cta-button {
+            background: var(--gold);
+            color: var(--navy-dark);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(232, 168, 62, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 7rem 2rem 3rem;
+            position: relative;
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='400' height='400' viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='200' cy='200' r='150' stroke='%23e8a83e' stroke-width='30' fill='none' opacity='0.1'/%3E%3Ccircle cx='280' cy='280' r='120' stroke='%23ffffff' stroke-width='25' fill='none' opacity='0.05'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(5deg); }
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: var(--white);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text h1 span {
+            color: var(--gold);
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 2rem;
+            max-width: 500px;
+            font-weight: 300;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .stat {
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--gold);
+            line-height: 1;
+        }
+
+        .stat-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-frame {
+            position: relative;
+            padding: 2rem;
+        }
+
+        .hero-image-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--gold);
+            transform: translate(15px, 15px);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+            filter: grayscale(20%);
+        }
+
+        /* Values Strip */
+        .values-strip {
+            background: var(--gold);
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .value-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--navy);
+        }
+
+        .value-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--navy-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .value-text span {
+            display: block;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: none;
+            letter-spacing: 0;
+            opacity: 0.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 2rem;
+            background: var(--white);
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .section-label {
+            font-family: 'Oswald', sans-serif;
+            color: var(--gold);
+            font-size: 0.9rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .about p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .team-card {
+            background: var(--cream);
+            padding: 2rem;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            object-position: top;
+            margin-bottom: 1.5rem;
+            filter: grayscale(20%);
+        }
+
+        .team-name {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .team-contact {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .team-contact a {
+            color: var(--navy);
+            text-decoration: none;
+            display: block;
+            margin-top: 0.25rem;
+        }
+
+        .team-contact a:hover {
+            color: var(--gold);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 2rem;
+            background: var(--navy);
+            position: relative;
+        }
+
+        .services::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='none'/%3E%3Cpath d='M30 30m-28 0a28 28 0 1 0 56 0a28 28 0 1 0-56 0' stroke='%23ffffff' stroke-width='0.5' fill='none' opacity='0.03'/%3E%3C/svg%3E");
+        }
+
+        .services-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            color: var(--white);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            width: 100%;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 2.5rem 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-icon svg {
+            width: 28px;
+            height: 28px;
+            fill: var(--navy-dark);
+        }
+
+        .service-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.3rem;
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .service-list {
+            list-style: none;
+        }
+
+        .service-list li {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            padding: 0.4rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+
+        .contact p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold);
+        }
+
+        .contact-method:hover .contact-icon {
+            background: var(--gold);
+        }
+
+        .contact-method:hover .contact-icon svg {
+            fill: var(--navy);
+        }
+
+        .contact-method a {
+            color: var(--navy);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .contact-method a:hover {
+            color: var(--gold);
+        }
+
+        .contact-method span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy-dark);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-logo {
+            height: 70px;
+            filter: brightness(0) invert(1);
+            opacity: 0.9;
+        }
+
+        .footer-info {
+            color: rgba(255,255,255,0.6);
+            font-size: 0.85rem;
+        }
+
+        .footer-info span {
+            margin: 0 1rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text p {
+                max-width: 100%;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-contact {
+                display: none;
+            }
+
+            .values-strip {
+                gap: 2rem;
+            }
+
+            .value-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .stat {
+                text-align: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-info span {
+                display: block;
+                margin: 0.25rem 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-text, .hero-stats {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .hero-stats {
+            animation-delay: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <img class="logo" src="images/logo.webp" alt="Jacks Pipe and Civil Logo">
+            <div class="header-contact">
+                <a href="tel:0411711135">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    0411 711 135
+                </a>
+                <a href="mailto:info@jacksgroup.com.au">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    info@jacksgroup.com.au
+                </a>
+                <a href="#contact" class="cta-button">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Quality <span>Civil Pipe Laying</span> Services</h1>
+                <p>Dedicated to providing disciplined and reliable civil construction services across South East Queensland. Expertise in pipeline construction, live connections, and civil works of any scale.</p>
+                <a href="#contact" class="cta-button">Start Your Project</a>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-number">2020</div>
+                        <div class="stat-label">Established</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Safety Focused</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image-frame">
+                    <img src="https://source.unsplash.com/oX2MggrtCVA/800x400" alt="Pipeline Construction in Queensland" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Strip -->
+    <section class="values-strip">
+        <div class="value-item">
+            <div class="value-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div class="value-text">
+                Expertise
+                <span>Second to none</span>
+            </div>
+        </div>
+        <div class="value-item">
+            <div class="value-icon">
+                <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+            </div>
+            <div class="value-text">
+                Efficiency
+                <span>Is key</span>
+            </div>
+        </div>
+        <div class="value-item">
+            <div class="value-icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            </div>
+            <div class="value-text">
+                Exceptional
+                <span>Workmanship</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about-content">
+            <div class="about-text">
+                <span class="section-label">About Us</span>
+                <h2>Building Lasting Relationships Through Quality Work</h2>
+                <p>Jacks Pipe and Civil Pty Ltd is dedicated to providing quality Civil Construction services that adopt a disciplined and reliable approach to each and every project, regardless of the size and scale.</p>
+                <p>Our pledge is to establish lasting relationships with our clients, by exceeding their expectations and ensuring all projects tendered for are competitively priced and assigned adequate resources to guarantee efficient completion.</p>
+                <p>We founded this company to offer our strong expertise in Civil Drainage Construction and to make the work environment enjoyable and productive without compromising safety.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/paul-jack.png" alt="Paul Jack" class="team-photo">
+                    <div class="team-name">Paul Jack</div>
+                    <div class="team-role">Director & Co-Founder</div>
+                    <div class="team-contact">
+                        Experienced Drainage Foreman with a passion for workplace health & safety.
+                        <a href="tel:0411711135">0411 711 135</a>
+                        <a href="mailto:paul@jacksgroup.com.au">paul@jacksgroup.com.au</a>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="images/tim-jack.png" alt="Tim Jack" class="team-photo">
+                    <div class="team-name">Tim Jack</div>
+                    <div class="team-role">Director & Co-Founder</div>
+                    <div class="team-contact">
+                        10 years experience in civil construction, 5 years as Drainage Foreman.
+                        <a href="tel:0421353077">0421 353 077</a>
+                        <a href="mailto:tim@jacksgroup.com.au">tim@jacksgroup.com.au</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-content">
+            <div class="services-header">
+                <span class="section-label" style="color: var(--gold);">Our Services</span>
+                <h2>Areas of Expertise</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6c-.55 0-1-.45-1-1V6c0-.55.45-1 1-1h12c.55 0 1 .45 1 1v12c0 .55-.45 1-1 1z"/><path d="M7 15h2v2H7zm0-4h2v2H7zm0-4h2v2H7zm4 8h6v2h-6zm0-4h6v2h-6zm0-4h6v2h-6z"/></svg>
+                    </div>
+                    <h3 class="service-title">Pipeline Construction</h3>
+                    <ul class="service-list">
+                        <li>Trunk & Reticulation Mains</li>
+                        <li>Water Mains</li>
+                        <li>Sewer Lines</li>
+                        <li>Recycled Water</li>
+                        <li>Storm Water</li>
+                        <li>Rising Mains</li>
+                        <li>Live Connections</li>
+                        <li>Road Crossings</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M1 11v10h6v-5h2v5h6V11L8 6l-7 5zm12 8h-2v-5H5v5H3v-6.97l5-3.57 5 3.57V19zm4-12h2v2h-2zm0 4h2v2h-2zm0 4h2v2h-2z"/><path d="M17 3v6h2V5h4v14h-6v2h8V3z"/></svg>
+                    </div>
+                    <h3 class="service-title">Civil Construction</h3>
+                    <ul class="service-list">
+                        <li>Manhole Construction (Sewer & Water)</li>
+                        <li>Construction of Gullies</li>
+                        <li>Gross Pollutant Traps</li>
+                        <li>Storm Water Drainage</li>
+                        <li>Concrete Structures</li>
+                        <li>Backfilling</li>
+                        <li>Water Recycling Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <span class="section-label">Get In Touch</span>
+            <h2>Ready to Start Your Project?</h2>
+            <p>We're committed to exceeding your expectations. Contact us today for a competitive quote on your next civil construction project.</p>
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <div class="contact-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </div>
+                    <span>Email Us</span>
+                    <a href="mailto:info@jacksgroup.com.au">info@jacksgroup.com.au</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <img class="footer-logo" src="images/logo.webp" alt="Jacks Pipe and Civil Logo">
+            <div class="footer-info">
+                <span>ABN 12 643 391 762</span>
+                <span>ACN 643 391 762</span>
+                <span>© 2026 Jacks Pipe and Civil Pty Ltd</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
