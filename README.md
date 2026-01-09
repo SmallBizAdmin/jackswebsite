@@ -37,17 +37,14 @@ jacks-website/
 ├── README.md           # This file
 └── images/
     ├── logo.webp       # Company logo
-    ├── paul-jack.png   # Director headshot
-    ├── tim-jack.png    # Director headshot
-    └── directors.png   # Combined directors image (original)
+    ├── paul-jack.png   # Director headshot (with branding)
+    ├── tim-jack.png    # Director headshot (with branding)
+    ├── worksite-1.png  # Hero image - pipeline construction
+    ├── worksite-2.png  # Additional worksite photo
+    └── worksite-3.png  # Additional worksite photo
 ```
 
-## External Resources
-
-- **Hero Image**: Uses a free Unsplash image of pipeline construction in Queensland, Australia
-  - Source: https://unsplash.com/photos/oX2MggrtCVA
-  - Photographer: Built Robotics
-  - License: Unsplash License (free for commercial use)
+## Resources
 
 - **Fonts**: Google Fonts (Oswald, Source Sans Pro)
 
